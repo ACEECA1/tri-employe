@@ -1,0 +1,9 @@
+feat(frontend): wire submissions actions, LinkedIn links, sorting, and navigation polish
+
+- add candidate APIs for CV download (blob), submission withdraw, and HR retry processing
+- add candidate UI actions: Download CV + Withdraw Application with confirmation and toasts
+- add HR/Admin retry processing button with loading state and refreshed offers list
+- make candidate names clickable LinkedIn search links (encoded query + external icon)
+- add sortable applicants table columns (name, score, status, application date) with sort direction icons
+- update evaluation-detail back navigation to the job-offer page
+- left-align the "Back to Job Offers" button on the /jobs/:jobId page
