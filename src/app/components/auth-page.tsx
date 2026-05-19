@@ -7,7 +7,7 @@ import { Label } from "./ui/label";
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "./ui/input-otp";
 import { AlertCircle, Eye, EyeOff, Loader2, ShieldCheck } from "lucide-react";
 import { authApi, type AuthTokensDTO } from "../api";
-const logoUrl = new URL("../../imports/image.png", import.meta.url).href;
+const logoUrl = new URL("../../imports/logo.png", import.meta.url).href;
 
 type AuthMode = "login" | "register-candidate" | "register-hr" | "verify";
 

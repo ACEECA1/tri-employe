@@ -3,7 +3,7 @@ import { useState, type ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import { LanguageSwitcher } from "./LanguageSwitcher";
-const logoUrl = new URL("../../imports/image.png", import.meta.url).href;
+const logoUrl = new URL("../../imports/logo.png", import.meta.url).href;
 
 export type Role = "admin" | "hr" | "candidate";
 
