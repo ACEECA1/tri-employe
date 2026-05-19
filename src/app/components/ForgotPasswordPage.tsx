@@ -99,7 +99,7 @@ export function ForgotPasswordPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 disabled={busy}
-                className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-[#ED1C24] focus:border-[#ED1C24] disabled:opacity-50"
+                className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary disabled:opacity-50"
                 placeholder="you@example.com"
               />
             </div>
@@ -108,7 +108,7 @@ export function ForgotPasswordPage() {
               type="button"
               onClick={() => void handleRequestCode()}
               disabled={busy}
-              className="w-full inline-flex items-center justify-center gap-2 rounded-md bg-[#ED1C24] hover:bg-[#c81820] text-white px-4 py-2 text-sm font-medium disabled:opacity-50"
+              className="w-full inline-flex items-center justify-center gap-2 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 text-sm font-medium disabled:opacity-50"
             >
               {busy ? <Loader2 className="w-4 h-4 animate-spin" /> : t("forgotPassword.sendResetCode")}
             </button>
@@ -147,7 +147,7 @@ export function ForgotPasswordPage() {
                   value={code}
                   onChange={(e) => setCode(e.target.value)}
                   disabled={busy || success}
-                  className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-[#ED1C24] focus:border-[#ED1C24] disabled:opacity-50"
+                  className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary disabled:opacity-50"
                   placeholder="Enter code"
                 />
               </div>
@@ -162,7 +162,7 @@ export function ForgotPasswordPage() {
                     value={newPassword}
                     onChange={(e) => setNewPassword(e.target.value)}
                     disabled={busy || success}
-                    className="w-full rounded-md border border-gray-300 px-3 pr-10 py-2 text-sm outline-none focus:ring-2 focus:ring-[#ED1C24] focus:border-[#ED1C24] disabled:opacity-50"
+                    className="w-full rounded-md border border-gray-300 px-3 pr-10 py-2 text-sm outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary disabled:opacity-50"
                     placeholder="••••••••"
                   />
                   <button
@@ -183,7 +183,7 @@ export function ForgotPasswordPage() {
                 type="button"
                 onClick={() => void handleResetPassword()}
                 disabled={busy}
-                className="w-full inline-flex items-center justify-center gap-2 rounded-md bg-[#ED1C24] hover:bg-[#c81820] text-white px-4 py-2 text-sm font-medium disabled:opacity-50"
+                className="w-full inline-flex items-center justify-center gap-2 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 text-sm font-medium disabled:opacity-50"
               >
                 {busy ? <Loader2 className="w-4 h-4 animate-spin" /> : t("forgotPassword.resetPassword")}
               </button>
@@ -191,7 +191,7 @@ export function ForgotPasswordPage() {
               <button
                 type="button"
                 onClick={() => navigate("/login")}
-                className="w-full inline-flex items-center justify-center rounded-md bg-[#ED1C24] hover:bg-[#c81820] text-white px-4 py-2 text-sm font-medium"
+                className="w-full inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 text-sm font-medium"
               >
                 {t("forgotPassword.returnToLogin")}
               </button>

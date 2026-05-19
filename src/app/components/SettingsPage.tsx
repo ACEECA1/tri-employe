@@ -4,7 +4,7 @@ import { Eye, EyeOff, Loader2 } from "lucide-react";
 import { loadStoredAuth, saveStoredAuth, type UpdateUserDTO, userApi } from "../api";
 
 const inputClassName =
-  "w-full rounded-md border border-gray-300 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-[#ED1C24] focus:border-[#ED1C24]";
+  "w-full rounded-md border border-gray-300 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary";
 
 export function SettingsPage() {
   const { t } = useTranslation();
@@ -257,7 +257,7 @@ export function SettingsPage() {
               <button
                 type="submit"
                 disabled={saving}
-                className="inline-flex items-center justify-center gap-2 rounded-md bg-[#ED1C24] hover:bg-[#c81820] text-white px-5 py-2.5 text-sm font-medium disabled:opacity-50"
+                className="inline-flex items-center justify-center gap-2 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 px-5 py-2.5 text-sm font-medium disabled:opacity-50"
               >
                 {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : null}
                 {t("settings.saveChanges")}

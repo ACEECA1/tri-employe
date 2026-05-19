@@ -28,9 +28,9 @@ const roleSubtitleKey: Record<Role, string> = {
 };
 
 const roleBadgeColor: Record<Role, string> = {
-  admin: "bg-primary/10 text-primary",
-  hr: "bg-primary/10 text-primary",
-  candidate: "bg-primary/10 text-primary",
+  admin: "bg-[#E7EFF5] text-[#0369A1]",
+  hr: "bg-[#E7EFF5] text-[#0369A1]",
+  candidate: "bg-[#E7EFF5] text-[#0369A1]",
 };
 
 export function SidebarShell({
@@ -66,7 +66,7 @@ export function SidebarShell({
       )}
 
       <aside
-        className={`fixed inset-y-0 left-0 z-50 w-[260px] bg-sidebar text-sidebar-foreground flex flex-col p-4 transition-transform duration-150 ease-in-out ${
+        className={`fixed inset-y-0 left-0 z-50 w-[260px] bg-[#F0F9FF] text-[#0C4A6E] flex flex-col p-4 transition-transform duration-150 ease-in-out ${
           isMobileOpen ? "translate-x-0" : "-translate-x-full"
         } md:relative md:translate-x-0 md:sticky md:top-0 md:h-screen max-h-screen overflow-y-auto`}
       >
@@ -74,7 +74,7 @@ export function SidebarShell({
           <button
             type="button"
             onClick={() => setIsMobileOpen(false)}
-            className="rounded-md p-2 text-sidebar-foreground/70 hover:bg-primary/10 hover:text-sidebar-foreground"
+            className="rounded-md p-2 text-[#0C4A6E]/70 hover:bg-[#E7EFF5] hover:text-[#0369A1]"
             aria-label="Close sidebar"
           >
             <X className="h-5 w-5" />
@@ -85,10 +85,10 @@ export function SidebarShell({
           <div className="w-20 h-20 flex items-center justify-center mb-3 mx-auto">
             <img src={logoUrl} alt="Djezzy" className="w-full h-full object-contain" />
           </div>
-          <div className="text-sidebar-foreground text-center" style={{ fontSize: 15, fontWeight: 600, lineHeight: "20px" }}>
+          <div className="text-[#0C4A6E] text-center" style={{ fontSize: 15, fontWeight: 600, lineHeight: "20px" }}>
             {t("common.appName")}
           </div>
-          <div className="text-sidebar-foreground/60 text-center" style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.6px" }}>
+          <div className="text-[#0C4A6E]/70 text-center" style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.6px" }}>
             {t(roleSubtitleKey[role])}
           </div>
         </div>
@@ -101,7 +101,7 @@ export function SidebarShell({
                 to={item.to}
                 onClick={() => setIsMobileOpen(false)}
                 className={({ isActive }) => `flex items-center gap-4 px-4 py-2 rounded-md text-left transition-colors ${
-                  isActive ? "bg-primary text-primary-foreground" : "text-sidebar-foreground/70 hover:bg-primary/10 hover:text-sidebar-foreground"
+                  isActive ? "bg-[#E7EFF5] text-[#0369A1]" : "text-[#0C4A6E] hover:bg-[#E7EFF5] hover:text-[#0369A1]"
                 }`}
               >
                 <span className="w-5 h-5 flex items-center justify-center">{item.icon}</span>
@@ -111,7 +111,7 @@ export function SidebarShell({
           })}
         </nav>
 
-        <div className="border-t border-sidebar-border pt-4 space-y-3">
+        <div className="border-t border-[#E7EFF5] pt-4 space-y-3">
           <div className="px-4">
             <span
               className={`inline-block px-2.5 py-1 rounded-md ${roleBadgeColor[role]}`}
@@ -119,7 +119,7 @@ export function SidebarShell({
             >
               {role.toUpperCase()}
             </span>
-            <p className="mt-2 text-sidebar-foreground/70" style={{ fontSize: 13 }}>
+            <p className="mt-2 text-[#0C4A6E]/70" style={{ fontSize: 13 }}>
               {fullName}
             </p>
           </div>
@@ -128,7 +128,7 @@ export function SidebarShell({
             onClick={() => setIsMobileOpen(false)}
             className={({ isActive }) =>
               `flex items-center gap-2 px-4 py-2 rounded-md transition-colors ${
-                isActive ? "bg-primary text-primary-foreground" : "text-sidebar-foreground/70 hover:bg-primary/10 hover:text-sidebar-foreground"
+                isActive ? "bg-[#E7EFF5] text-[#0369A1]" : "text-[#0C4A6E] hover:bg-[#E7EFF5] hover:text-[#0369A1]"
               }`
             }
             aria-label="Settings"
@@ -141,7 +141,7 @@ export function SidebarShell({
               setIsMobileOpen(false);
               onLogout();
             }}
-            className="flex items-center gap-2 px-4 py-2 rounded-md w-full text-sidebar-foreground/70 hover:bg-primary/10 hover:text-sidebar-foreground"
+            className="flex items-center gap-2 px-4 py-2 rounded-md w-full text-[#0C4A6E] hover:bg-[#E7EFF5] hover:text-[#0369A1]"
           >
             <LogOut className="w-[18px] h-[18px]" />
             <span style={{ fontSize: 14 }}>{t("nav.logout")}</span>

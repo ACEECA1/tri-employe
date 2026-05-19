@@ -186,7 +186,7 @@ export function AuthPage({ onAuthenticated }: AuthPageProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+    <div className="h-screen bg-gray-50 flex items-start justify-center p-4 overflow-y-auto">
       <div className="w-full max-w-[420px] bg-white rounded-lg shadow-sm border border-gray-200 p-4 md:p-8">
         <div className="flex flex-col items-center gap-3 mb-6">
           <img src={logoUrl} alt="Djezzy" className="w-20 h-20 object-contain" />
@@ -242,13 +242,13 @@ export function AuthPage({ onAuthenticated }: AuthPageProps) {
                   </button>
                 </div>
               </div>
-              <Button onClick={() => void handleLogin()} disabled={busy} className="w-full bg-[#ED1C24] hover:bg-[#c81820] text-white">
+              <Button onClick={() => void handleLogin()} disabled={busy} className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
                 {busy ? <Loader2 className="w-4 h-4 animate-spin" /> : t("auth.signIn")}
               </Button>
               <div className="text-right">
                 <button
                   onClick={() => navigate("/forgot-password")}
-                  className="text-sm text-[#ED1C24] hover:underline"
+                  className="text-sm text-primary hover:underline"
                   disabled={busy}
                 >
                   {t("auth.forgotPassword")}
@@ -258,7 +258,7 @@ export function AuthPage({ onAuthenticated }: AuthPageProps) {
 
             <div className="text-center mt-5 text-gray-600" style={{ fontSize: 13 }}>
               {t("auth.noAccount")}{" "}
-              <button onClick={() => switchMode("register-candidate")} className="text-[#ED1C24]" style={{ fontWeight: 600 }}>
+              <button onClick={() => switchMode("register-candidate")} className="text-primary" style={{ fontWeight: 600 }}>
                 {t("auth.register")}
               </button>
             </div>
@@ -270,7 +270,7 @@ export function AuthPage({ onAuthenticated }: AuthPageProps) {
             <div className="bg-gray-100 rounded-lg p-1 flex gap-1 mb-5">
               <button
                 onClick={() => switchMode("register-candidate")}
-                className={`flex-1 py-2 rounded-md ${activeMode === "register-candidate" ? "bg-white shadow-sm text-[#ED1C24]" : "text-gray-600"}`}
+                className={`flex-1 py-2 rounded-md ${activeMode === "register-candidate" ? "bg-white shadow-sm text-primary" : "text-gray-600"}`}
                 style={{ fontSize: 12, fontWeight: 600 }}
                 disabled={busy}
               >
@@ -278,7 +278,7 @@ export function AuthPage({ onAuthenticated }: AuthPageProps) {
               </button>
               <button
                 onClick={() => switchMode("register-hr")}
-                className={`flex-1 py-2 rounded-md ${activeMode === "register-hr" ? "bg-white shadow-sm text-[#ED1C24]" : "text-gray-600"}`}
+                className={`flex-1 py-2 rounded-md ${activeMode === "register-hr" ? "bg-white shadow-sm text-primary" : "text-gray-600"}`}
                 style={{ fontSize: 12, fontWeight: 600 }}
                 disabled={busy}
               >
@@ -354,14 +354,14 @@ export function AuthPage({ onAuthenticated }: AuthPageProps) {
                   </button>
                 </div>
               </div>
-              <Button onClick={() => void handleRegister()} disabled={busy} className="w-full bg-[#ED1C24] hover:bg-[#c81820] text-white">
+              <Button onClick={() => void handleRegister()} disabled={busy} className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
                 {busy ? <Loader2 className="w-4 h-4 animate-spin" /> : t("auth.createAccountBtn")}
               </Button>
             </div>
 
             <div className="text-center mt-5 text-gray-600" style={{ fontSize: 13 }}>
               {t("auth.alreadyHaveAccount")}{" "}
-              <button onClick={() => switchMode("login")} className="text-[#ED1C24]" style={{ fontWeight: 600 }}>
+              <button onClick={() => switchMode("login")} className="text-primary" style={{ fontWeight: 600 }}>
                 {t("auth.signIn")}
               </button>
             </div>
@@ -387,10 +387,10 @@ export function AuthPage({ onAuthenticated }: AuthPageProps) {
                 ))}
               </InputOTPGroup>
             </InputOTP>
-            <Button onClick={() => void handleVerify()} disabled={busy} className="w-full bg-[#ED1C24] hover:bg-[#c81820] text-white">
+            <Button onClick={() => void handleVerify()} disabled={busy} className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
               {busy ? <Loader2 className="w-4 h-4 animate-spin" /> : t("auth.verifyEmailBtn")}
             </Button>
-            <button onClick={() => void handleResend()} disabled={busy} className="text-[#ED1C24]" style={{ fontSize: 12, fontWeight: 600 }}>
+            <button onClick={() => void handleResend()} disabled={busy} className="text-primary" style={{ fontSize: 12, fontWeight: 600 }}>
               {t("auth.resendCode")}
             </button>
             <button onClick={() => switchMode("login")} className="text-gray-500" style={{ fontSize: 12 }}>

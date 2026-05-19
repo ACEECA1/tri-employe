@@ -390,7 +390,7 @@ export function CandidateEvaluationDetail({
                 <Button
                   onClick={() => void downloadCv()}
                   disabled={downloading || !resolvedEvaluationId}
-                  className="w-full bg-[#ED1C24] hover:bg-[#c81820] text-white gap-2 md:w-auto"
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 gap-2 md:w-auto"
                 >
                   {downloading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Download className="w-4 h-4" />}
                   {t("evaluations.detail.downloadCv")}

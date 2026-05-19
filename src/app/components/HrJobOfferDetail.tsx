@@ -319,7 +319,7 @@ export function JobOfferManagement({ role }: { role: JobOfferManagementRole }) {
           <button
             type="button"
             onClick={() => navigate(jobsPath)}
-            className="text-sm font-medium text-gray-600 hover:text-[#ED1C24] transition-colors flex items-center gap-2"
+            className="text-sm font-medium text-gray-600 hover:text-primary transition-colors flex items-center gap-2"
           >
             <ArrowLeft className="w-4 h-4" /> {t("common.actions.backToJobOffers")}
           </button>
@@ -345,7 +345,7 @@ export function JobOfferManagement({ role }: { role: JobOfferManagementRole }) {
                 type="button"
                 onClick={() => void deleteJob()}
                 disabled={deleting || toggling}
-                className="text-sm font-medium text-[#ED1C24] hover:text-[#c81820] disabled:opacity-50"
+                className="text-sm font-medium text-destructive hover:text-destructive/90 disabled:opacity-50"
               >
                 {deleting ? t("jobOffers.detail.deleting") : t("jobOffers.detail.deleteJob")}
               </button>
@@ -367,7 +367,7 @@ export function JobOfferManagement({ role }: { role: JobOfferManagementRole }) {
                 type="button"
                 onClick={() => setActiveTab("job-info")}
                 className={`px-4 py-3 text-sm font-semibold border-b-2 transition-colors ${
-                  activeTab === "job-info" ? "border-[#ED1C24] text-[#ED1C24]" : "border-transparent text-gray-500 hover:text-gray-700"
+                  activeTab === "job-info" ? "border-primary text-primary" : "border-transparent text-gray-500 hover:text-gray-700"
                 }`}
               >
                 {t("jobOffers.detail.tabs.jobInfo")}
@@ -376,7 +376,7 @@ export function JobOfferManagement({ role }: { role: JobOfferManagementRole }) {
                 type="button"
                 onClick={() => setActiveTab("applicants")}
                 className={`px-4 py-3 text-sm font-semibold border-b-2 transition-colors ${
-                  activeTab === "applicants" ? "border-[#ED1C24] text-[#ED1C24]" : "border-transparent text-gray-500 hover:text-gray-700"
+                  activeTab === "applicants" ? "border-primary text-primary" : "border-transparent text-gray-500 hover:text-gray-700"
                 }`}
               >
                 {t("jobOffers.detail.tabs.applicants")}
@@ -401,7 +401,7 @@ export function JobOfferManagement({ role }: { role: JobOfferManagementRole }) {
                   <select
                     value={employmentType}
                     onChange={(e) => setEmploymentType(e.target.value)}
-                    className="w-full h-10 rounded-md border border-gray-300 bg-white px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#ED1C24]/40"
+                    className="w-full h-10 rounded-md border border-gray-300 bg-white px-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
                   >
                     <option value="">{t("jobOffers.detail.employmentTypes.select")}</option>
                     <option value="Full-Time">{t("jobOffers.detail.employmentTypes.fullTime")}</option>
@@ -501,7 +501,7 @@ export function JobOfferManagement({ role }: { role: JobOfferManagementRole }) {
                 <Button
                   onClick={() => void saveChanges()}
                   disabled={saving || toggling || deleting}
-                  className="bg-[#ED1C24] hover:bg-[#c81820] text-white"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90"
                 >
                   {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : t("jobOffers.detail.saveChanges")}
                 </Button>

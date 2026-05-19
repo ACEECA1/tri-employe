@@ -109,7 +109,7 @@ export function ApplicationModal({ jobId, isOpen, onClose }: ApplicationModalPro
                 }
               }}
               className={`rounded-lg border-2 border-dashed p-6 text-center transition-colors md:p-10 ${
-                dragActive ? "border-[#ED1C24] bg-red-50" : "border-gray-300 bg-gray-50"
+                dragActive ? "border-primary bg-primary/10" : "border-gray-300 bg-gray-50"
               }`}
             >
               <p className="text-base font-semibold text-gray-900 mb-2">{t("candidates.modal.uploadCv")}</p>
@@ -148,7 +148,7 @@ export function ApplicationModal({ jobId, isOpen, onClose }: ApplicationModalPro
               <Button variant="outline" onClick={onClose}>
                 {t("common.actions.cancel")}
               </Button>
-              <Button onClick={() => void submitApplication()} className="bg-[#ED1C24] hover:bg-[#c81820] text-white">
+              <Button onClick={() => void submitApplication()} className="bg-primary text-primary-foreground hover:bg-primary/90">
                 {t("candidates.modal.submitApplication")}
               </Button>
             </div>
@@ -196,7 +196,7 @@ export function ApplicationModal({ jobId, isOpen, onClose }: ApplicationModalPro
             <div className="flex justify-center">
               <Button
                 onClick={() => navigate("/candidate/applications")}
-                className="w-full bg-[#ED1C24] hover:bg-[#c81820] text-white md:w-auto"
+                className="w-full bg-primary text-primary-foreground hover:bg-primary/90 md:w-auto"
               >
                 {t("candidates.modal.goToApplications")}
               </Button>

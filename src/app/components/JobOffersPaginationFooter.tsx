@@ -48,7 +48,7 @@ export function JobOffersPaginationFooter({
         <select
           value={size}
           onChange={(e) => onSizeChange(Number(e.target.value))}
-          className="h-9 rounded-md border border-gray-300 bg-white px-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#ED1C24]/20"
+          className="h-9 rounded-md border border-gray-300 bg-white px-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
         >
           <option value={10}>10</option>
           <option value={25}>25</option>
@@ -84,7 +84,7 @@ export function JobOffersPaginationFooter({
               onClick={() => onPageChange(pageItem)}
               className={`h-9 min-w-9 rounded-md border px-3 text-sm font-medium transition ${
                 isActive
-                  ? "bg-[#ED1C24] text-white border-[#ED1C24]"
+                  ? "bg-primary text-primary-foreground border-primary"
                   : "text-gray-700 hover:bg-gray-50 border-gray-300"
               }`}
             >

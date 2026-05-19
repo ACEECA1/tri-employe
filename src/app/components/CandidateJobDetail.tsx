@@ -109,7 +109,7 @@ export function CandidateJobDetail() {
               </div>
             </div>
 
-            <Button onClick={() => setIsModalOpen(true)} className="bg-[#ED1C24] hover:bg-[#c81820] text-white">
+            <Button onClick={() => setIsModalOpen(true)} className="bg-primary text-primary-foreground hover:bg-primary/90">
               {t("common.actions.applyNow")}
             </Button>
           </div>
