@@ -245,12 +245,16 @@ export interface StoredAuth {
 }
 
 const STORAGE_KEY = "talent-portal-auth";
-const ENV_API_BASE_URL = (import.meta as ImportMeta & { env?: { VITE_API_BASE_URL?: string } }).env?.VITE_API_BASE_URL;
-const DEFAULT_API_BASE_URL = (() => {
-  if (typeof window === "undefined") return "http://localhost:8080";
-  return `${window.location.protocol}//${window.location.hostname}:8080`;
-})();
-const API_BASE_URL = (ENV_API_BASE_URL ?? DEFAULT_API_BASE_URL).replace(/\/+$/, "");
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL.replace(/\/+$/, "");
+const API_BASE_URL_HAS_API_PREFIX = API_BASE_URL.endsWith("/api");
+const API_BASE_URL_WITHOUT_API = API_BASE_URL_HAS_API_PREFIX ? API_BASE_URL.slice(0, -4) : API_BASE_URL;
+
+function buildApiUrl(path: string) {
+  if (API_BASE_URL_HAS_API_PREFIX && path.startsWith("/api/")) {
+    return `${API_BASE_URL_WITHOUT_API}${path}`;
+  }
+  return `${API_BASE_URL}${path}`;
+}
 let accessToken: string | null = null;
 
 export function formatScoreOutOfTen(score: number | null | undefined): string {
@@ -354,7 +358,7 @@ async function requestJson<T>(
   }
   headers.set("Accept", "application/json");
 
-  let response = await fetch(`${API_BASE_URL}${path}`, { ...init, headers });
+  let response = await fetch(buildApiUrl(path), { ...init, headers });
   if (
     (response.status === 401 || response.status === 403)
     && path !== "/api/auth/refresh"
@@ -362,7 +366,7 @@ async function requestJson<T>(
   ) {
     const stored = loadStoredAuth();
     if (stored?.refreshToken) {
-      const refreshResponse = await fetch(`${API_BASE_URL}/api/auth/refresh`, {
+      const refreshResponse = await fetch(buildApiUrl("/api/auth/refresh"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -393,7 +397,7 @@ async function requestJson<T>(
       }
 
       if (refreshSucceeded) {
-        response = await fetch(`${API_BASE_URL}${path}`, { ...init, headers });
+        response = await fetch(buildApiUrl(path), { ...init, headers });
       } else {
         clearStoredAuth();
         if (typeof window !== "undefined") {
@@ -435,7 +439,7 @@ async function downloadWithAuth(path: string, fallbackFileName: string): Promise
     headers.set("Authorization", `Bearer ${accessToken}`);
   }
 
-  const response = await fetch(`${API_BASE_URL}${path}`, { method: "GET", headers });
+  const response = await fetch(buildApiUrl(path), { method: "GET", headers });
   if (!response.ok) {
     const text = await response.text();
     let payload: unknown = null;
