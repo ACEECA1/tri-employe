@@ -186,7 +186,7 @@ export function AuthPage({ onAuthenticated }: AuthPageProps) {
   };
 
   return (
-    <div className="h-screen bg-gray-50 flex items-start justify-center p-4 overflow-y-auto">
+    <div className="min-h-screen bg-gray-50 flex items-start justify-center p-4">
       <div className="w-full max-w-[420px] bg-white rounded-lg shadow-sm border border-gray-200 p-4 md:p-8">
         <div className="flex flex-col items-center gap-3 mb-6">
           <img src={logoUrl} alt="Djezzy" className="w-20 h-20 object-contain" />
